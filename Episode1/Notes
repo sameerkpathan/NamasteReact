@@ -1,0 +1,8 @@
+1]What is cdn 
+2]what is cross origin
+
+
+So React.createElement("div",{id:"heading},"content") ;   
+so this will be take three argument in first one we write which createElement we are using it
+in second element we add other element or we cad add some attribute here 
+and in third element we can add content for that perticulaer element i.e like innerhtml
