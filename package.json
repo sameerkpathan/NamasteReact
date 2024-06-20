@@ -1,0 +1,29 @@
+{
+  "name": "namaste_react",
+  "version": "1.0.0",
+  "description": "This is Namaste React By Sameer Pathan ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameerkpathan/NamasteReact.git"
+  },
+  "keywords": [
+    "React",
+    "Namaste",
+    "React",
+    "Sameer",
+    "Pathan"
+  ],
+  "author": "Sameer Pathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sameerkpathan/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/sameerkpathan/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
