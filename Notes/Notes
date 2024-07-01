@@ -1,0 +1,17 @@
+
+
+#Parcel :
+
+1- Dev Build
+2-Local Server 
+3-Hot Module Replacement(HMR) - it will be relaced only thoings which are actually changes and reload it
+4-File watching algorith - so for tracing all the file in Application File watching algorith is used and it is written in c++
+5-cashing - faster builds- when we start the server or create buildthat time react itself create a folder parcel-cache so it will be load our app/file faster and when we again and again save file so that time also changes wil chow in milisecond(quick)
+6-Image optimisation
+7-Bundling - this is main work on parcel
+8-minification
+9-compression - it will remove void space in code and make file lite for production
+
+react is fast no doubt but due to parcel it got extra push to make things fast
+
+
