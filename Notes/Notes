@@ -11,7 +11,12 @@
 7-Bundling - this is main work on parcel
 8-minification
 9-compression - it will remove void space in code and make file lite for production
-
+10-consistant Hashing 
+11-Code Spliting 
+12-It will Do diffrential Bundling to support older Browser 
+13-Better Error Suggetion
+14-HTTPS
+15-Tree Shaking- Parcel will remove unwanted code
 react is fast no doubt but due to parcel it got extra push to make things fast
 
 
