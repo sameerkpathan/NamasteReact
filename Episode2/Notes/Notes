@@ -1,0 +1,5 @@
+//To start the Episode you need to come this directory 
+// then you need to run this command 
+// npx parcel index.html 
+//so it will start to create dev build and hosted our all in localhost://1234
+// meanwhile it will automatically download Dist and .parcel-cace file 
