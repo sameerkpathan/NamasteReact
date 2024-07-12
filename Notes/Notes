@@ -19,4 +19,36 @@
 15-Tree Shaking- Parcel will remove unwanted code
 react is fast no doubt but due to parcel it got extra push to make things fast
 
+/**
+ * Plan to create our food app
+ 
+ * Header
+ *   -Logo
+ *   -Nav Menu
+ *
+ * Body
+ *   -Search
+ *   -RestorentContainer
+ *     -Restro card
+ *        -Image
+ *        -name of res , star ratings , cuisine,deleiver time
+ *
+ * Footer
+ *   -copyright
+ *   -Links
+ *   -Address
+ */
+
+
+
+There are two types of export 
+
+1-is By export default  components
+  -export  default components
+  -import component from "path"
+
+2-Named export/import
+
+ -export const component  
+ -import {component} from path 
 
