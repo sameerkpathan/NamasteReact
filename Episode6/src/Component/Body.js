@@ -1,68 +1,50 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurantList } from "../Utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ShimmerUi from "./ShimmerUi";
 
 const Body = () => {
+  const [RestolistItem, setRestolistItem] = useState([]);
 
-  const RestoList = [
-    {
-      info: {
-        id: "10894",
-        name: "Pizza Hut",
-        cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
-        locality: "2nd Stage",
-        areaName: "BTM Layout",
-        costForTwo: "₹350 for two",
-        cuisines: ["Pizzas"],
-        avgRating: 4.7,
-        parentId: "721",
-        avgRatingString: "4.1",
-        totalRatingsString: "10K+",
-        deliveryTime: 31,
-      },
-    },
-    {
-      info: {
-        id: "108946",
-        name: "Dominos ",
-        cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
-        locality: "2nd Stage",
-        areaName: "BTM Layout",
-        costForTwo: "₹450 for two",
-        cuisines: ["Pizzas"],
-        avgRating: 4.1,
-        parentId: "721",
-        avgRatingString: "4.7",
-        totalRatingsString: "10K+",
-        deliveryTime: 31,
-      },
-    },
-  ]
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const[RestolistItem,setRestolistItem]=useState(restaurantList);
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    // console.log(json);
 
-  return (
+    //optional chaining
+    
+    setRestolistItem(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  //conditional rendering
+  // if (RestolistItem.length === 0) {
+  //   return <ShimmerUi/>;
+  // }
+
+  return RestolistItem.length === 0 ? (
+    <ShimmerUi />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-           const FilterRestorent = RestolistItem.filter((Items)=>{
-            return  Items.info.avgRating > 4.3
+            const FilterRestorent = RestolistItem.filter((Items) => {
+              return Items.info.avgRating >= 4.5;
             });
-            setRestolistItem(FilterRestorent)
+            setRestolistItem(FilterRestorent);
           }}
         >
           Top Rated Restaurants
         </button>
-        <button className="filter-bbtn"
-        onClick={()=>{
-          
-          setRestolistItem(restaurantList);
-        }}
-        >
-          All Restaurant
-        </button>
+        <button className="filter-bbtn">All Restaurant</button>
       </div>
       <div className="res-container">
         {RestolistItem?.map((restorent) => {
