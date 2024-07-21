@@ -32,6 +32,12 @@
 
 .filter{
     padding: 15px;
+    display: flex;
+}
+
+.search-btn{
+    margin: 10px;
+    cursor: pointer;
 }
 
 .filter-btn{
