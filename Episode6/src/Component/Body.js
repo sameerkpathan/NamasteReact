@@ -11,7 +11,7 @@ const Body = () => {
   //whwenever state variable update react trigger the reconcilation process(it will re-render component)
 
   console.log("Body Re-render");
-
+//it gives a cors error when you are starting this app so that time you can install an cors extension in chrome and turn on that extension so it can bypass that headers and will run in local app.
   useEffect(() => {
     fetchData();
   }, []);
