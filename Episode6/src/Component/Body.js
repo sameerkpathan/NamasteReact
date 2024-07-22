@@ -5,8 +5,8 @@ import ShimmerUi from "./ShimmerUi";
 const Body = () => {
   const [RestolistItem, setRestolistItem] = useState([]);
 
-  const[filteredRestro,setFilteredRestro] = useState([]);
-  const[searchRestro,setSearchRestro]= useState("");
+  const [filteredRestro, setFilteredRestro] = useState([]);
+  const [searchRestro, setSearchRestro] = useState("");
 
   //whwenever state variable update react trigger the reconcilation process(it will re-render component)
 
@@ -30,8 +30,7 @@ const Body = () => {
     );
     setFilteredRestro(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    )
-
+    );
   };
 
   //conditional rendering
@@ -44,16 +43,32 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-
         <div className="search">
-            <input type="text" className="search-box" placeholder="Please Search Here" value={searchRestro} onChange={(event)=>{setSearchRestro(event.target.value)}} />
-            <button className="search-btn" onClick={()=>{
+          <input
+            type="text"
+            className="search-box"
+            placeholder="Please Search Here"
+            value={searchRestro}
+            onChange={(event) => {
+              setSearchRestro(event.target.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
               //Filter the Restorent here and update the UI
               //search
-              const Searchrestrobyinput = RestolistItem.filter((RestoItem)=> RestoItem.info.name.toLowerCase().includes(searchRestro.toLowerCase()));
+              const Searchrestrobyinput = RestolistItem.filter((RestoItem) =>
+                RestoItem.info.name
+                  .toLowerCase()
+                  .includes(searchRestro.toLowerCase())
+              );
               setFilteredRestro(Searchrestrobyinput);
-              console.log(searchRestro)
-            }}>Search</button>
+              console.log(searchRestro);
+            }}
+          >
+            Search
+          </button>
         </div>
 
         <button
@@ -67,7 +82,14 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        <button className="filter-btn" onClick={()=>{console.log("All List")}}>All Restaurant</button>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            console.log("All List");
+          }}
+        >
+          All Restaurant
+        </button>
       </div>
       <div className="res-container">
         {filteredRestro?.map((restorent) => {
