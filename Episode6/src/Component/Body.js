@@ -59,10 +59,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const FilterRestorent = RestolistItem.filter((Items) => {
+            const FilterRestorent = filteredRestro.filter((Items) => {
               return Items.info.avgRating >= 4.5;
             });
-            setRestolistItem(FilterRestorent);
+            setFilteredRestro(FilterRestorent);
           }}
         >
           Top Rated Restaurants
