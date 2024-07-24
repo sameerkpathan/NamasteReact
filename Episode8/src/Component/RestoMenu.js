@@ -18,7 +18,6 @@ const RestoMenu = () => {
       const data = await fetch(Swiggy_MENU_URL + resID);
       const jsondata = await data.json();
 
-      
       setResMenu(jsondata?.data?.cards[2]?.card?.card?.info);
       setResItemList(
         jsondata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
@@ -33,12 +32,11 @@ const RestoMenu = () => {
     return <ShimmerUi />;
   }
 
-  //find restaurent name 
+  //find restaurent name
   const { name, city, cuisines, costForTwoMessage } = resMenu;
 
   //find the restaurent item list
   const { itemCards } = resItemList;
-  
 
   return (
     <div>

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./Component/Header";
 import Body from "./Component/Body";
 import Footer from "./Component/Footer";
-import {Outlet, RouterProvider, createBrowserRouter} from 'react-router-dom'
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./Component/About";
 import Errorpage from "./Component/Errorpage";
 import Contact from "./Component/Contact";
@@ -14,7 +14,7 @@ const AppLayout = () => {
   return (
     <div>
       <Header />
-      <Outlet/>
+      <Outlet />
       <Footer />
     </div>
   );
@@ -22,35 +22,36 @@ const AppLayout = () => {
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout/>,
-    children:[
+    path: "/",
+    element: <AppLayout />,
+    children: [
       {
-        path:"/",
-        element:<Body/>
+        path: "/",
+        element: <Body />,
       },
       {
-        path:"about",
-        element:<About/>
+        path: "about",
+        element: <About />,
       },
       {
-        path:"/contact",
-        element:<Contact/>
+        path: "/contact",
+        element: <Contact />,
       },
       {
-        path:"/restaurants/:resID",
-        element:<RestoMenu/>
-      }
+        path: "/restaurants/:resID",
+        element: <RestoMenu />,
+      },
     ],
-    errorElement:<Errorpage/>
+    errorElement: <Errorpage />,
   },
-  
- 
-])
- 
+]);
 
 //Render the all the data on webpage
 
 const root = ReactDOM.createRoot(document.getElementById("main"));
 
-root.render(<RouterProvider router={router}><AppLayout /></RouterProvider>);
+root.render(
+  <RouterProvider router={router}>
+    <AppLayout />
+  </RouterProvider>
+);

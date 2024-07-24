@@ -23,7 +23,6 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      
       const data = await fetch(Swiggy_URL);
       const json = await data.json();
 
@@ -74,7 +73,6 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search">
-
           <input
             type="text"
             className="search-box"
@@ -100,7 +98,6 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-
         {filteredRestro.length !== 0 ? (
           filteredRestro?.map((restorent) => {
             return (
@@ -114,7 +111,6 @@ const Body = () => {
           </h2>
         )}
       </div>
-
     </div>
   );
 };
