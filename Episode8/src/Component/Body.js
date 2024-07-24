@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Swiggy_URL } from "../Utils/constant";
-import { Link } from "react-router-dom";
 
 const Body = () => {
   const [RestolistItem, setRestolistItem] = useState([]);
@@ -24,6 +23,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
+      
       const data = await fetch(Swiggy_URL);
       const json = await data.json();
 
@@ -74,6 +74,7 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search">
+
           <input
             type="text"
             className="search-box"
@@ -99,9 +100,12 @@ const Body = () => {
       </div>
 
       <div className="res-container">
+
         {filteredRestro.length !== 0 ? (
           filteredRestro?.map((restorent) => {
-            return <RestaurantCard resData={restorent} />;
+            return (
+              <RestaurantCard key={restorent.info.id} resData={restorent} />
+            );
           })
         ) : (
           <h2>
@@ -110,6 +114,7 @@ const Body = () => {
           </h2>
         )}
       </div>
+
     </div>
   );
 };
