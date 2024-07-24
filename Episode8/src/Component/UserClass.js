@@ -1,22 +1,44 @@
 import React from "react";
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 1,
+    };
+    console.log("child constructor");
+  }
 
-class UserClass extends React.Component{
+  componentDidMount(){
+    console.log("child mount")
+  }
+  
+  render() {
+    const { name, location } = this.props;
+    const { count } = this.state;
 
-    constructor(props){
-         super(props);
-         console.log(props);
-    }
-
-    render(){
-        return (
-            <div className="user-card">
-            <p>Class Base Component</p>
-            <h2>Name : {this.props.name}</h2>
-            <h3>Location : Barshi (Maharashtra)</h3>
-            <h4>Contact : _sameer_pathan_</h4>
-        </div>
-        )
-    }
-};
+    console.log("child render")
+    return (
+      <div className="user-card">
+        <h2>Name : {name} Class</h2>
+        <p>Count is : {this.state.count}</p>
+        <button
+          onClick={() => {
+            {
+              /* Never Ever Update Count Variable Directly  */
+            }
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }}
+        >
+          {" "}
+          Count Increment
+        </button>
+        <h3>Location : {location} </h3>
+        <h4>Contact : _sameer_pathan_</h4>
+      </div>
+    );
+  }
+}
 
 export default UserClass;
