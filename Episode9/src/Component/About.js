@@ -8,23 +8,19 @@ class About extends React.Component {
     this.state = {
       count: 0,
     };
-    // console.log("parent constructor");
   }
 
-  componentDidMount(){
-    // console.log("parent component mount")
-  }
+  componentDidMount() {}
 
   render() {
-    // console.log( "parent render");
     return (
       <div>
         <h1>About Us from class in class </h1>
 
         {/* <UserClass name={"Sameer Pathan From Class"} location={"Barshi"} /> */}
         {/* <UserClass name={"Elon Bhai From Class"} location={"USA"} /> */}
-        
-        <UserClass name={"Sameer Pathan From Class"} location={"Barshi"}/>
+
+        <UserClass name={"Sameer Pathan From Class"} location={"Barshi"} />
       </div>
     );
   }
@@ -46,8 +42,8 @@ so this will be life cycle of class based react component
   */
 }
 
-
-{/*
+{
+  /*
   Based On this for above how life cycle work 
 
   --This three stages are render phase
@@ -69,7 +65,7 @@ so this will be life cycle of class based react component
   -Parent ComponentDidMount call 
   
   
-  */}
-
+  */
+}
 
 export default About;

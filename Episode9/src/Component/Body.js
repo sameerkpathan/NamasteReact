@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Swiggy_URL } from "../Utils/constant";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Body = () => {
   const [RestolistItem, setRestolistItem] = useState([]);
@@ -10,6 +11,8 @@ const Body = () => {
   const [searchRestro, setSearchRestro] = useState("");
 
   const [RestaurantName, setRestaurantName] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   //whenever state variable update react trigger the reconcilation process(it will re-render component)
 
@@ -66,6 +69,17 @@ const Body = () => {
   const handleAllList = () => {
     setFilteredRestro(RestolistItem);
   };
+
+  //costom hook logic is here
+
+  if (onlineStatus === false) {
+    return (
+      <p>
+        Oops looks like you are offline please check your Internet
+        connection....!!!
+      </p>
+    );
+  }
 
   return RestolistItem.length === 0 ? (
     <ShimmerUi />

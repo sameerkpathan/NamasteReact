@@ -3,44 +3,44 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      githubapidata :{
-        name:"dummy",
-        location:"default",
+      githubapidata: {
+        name: "dummy",
+        location: "default",
       },
-      count:0,
+      count: 0,
     };
-    console.log( "child constructor");
   }
 
-  async componentDidMount(){
-    console.log( "child mount")
-
-  const getdata = await fetch("https://api.github.com/users/sameerkpathan");
-  const json = await getdata.json();
-   this.setState({
-    githubapidata:json
-   })
-   console.log(json);
+  async componentDidMount() {
+    const getdata = await fetch("https://api.github.com/users/sameerkpathan");
+    const json = await getdata.json();
+    this.setState({
+      githubapidata: json,
+    });
+    console.log(json);
   }
 
-  componentDidUpdate(prevprops,perstate){
+  componentDidUpdate(prevprops, perstate) {
     // Befor people are sing this syntax and because of this useeffect dependancy array will come in picture
-if(this.state.count ==! perstate.count || this.state.count ==! perstate.count){
-  //code
-}
+    if (
+      this.state.count == !perstate.count ||
+      this.state.count == !perstate.count
+    ) {
+      //code
+    }
 
-this.timer =  setInterval(()=>{console.log("print")},1000);
-    console.log("component did update call")
+    this.timer = setInterval(() => {
+      console.log("print");
+    }, 1000);
+    console.log("component did update call");
   }
 
-  componentWillUnmount(){
-    clearInterval(this.timer)
-    console.log("unmount is triggred")
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
-    const { name , avatar_url} = this.state.githubapidata;
-   
+    const { name, avatar_url } = this.state.githubapidata;
 
     // console.log( this.props.name + "child render")
     return (
