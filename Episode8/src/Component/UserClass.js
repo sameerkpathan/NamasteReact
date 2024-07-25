@@ -26,6 +26,10 @@ class UserClass extends React.Component {
     console.log("component did update call")
   }
   
+  componentWillUnmount(){
+    console.log("unmount is triggred")
+  }
+
   render() {
     const { name , avatar_url} = this.state.githubapidata;
    
