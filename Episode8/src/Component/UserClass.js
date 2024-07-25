@@ -6,7 +6,8 @@ class UserClass extends React.Component {
       githubapidata :{
         name:"dummy",
         location:"default",
-      }
+      },
+      count:0,
     };
     console.log( "child constructor");
   }
@@ -22,11 +23,18 @@ class UserClass extends React.Component {
    console.log(json);
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevprops,perstate){
+    // Befor people are sing this syntax and because of this useeffect dependancy array will come in picture
+if(this.state.count ==! perstate.count || this.state.count ==! perstate.count){
+  //code
+}
+
+this.timer =  setInterval(()=>{console.log("print")},1000);
     console.log("component did update call")
   }
-  
+
   componentWillUnmount(){
+    clearInterval(this.timer)
     console.log("unmount is triggred")
   }
 
