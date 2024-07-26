@@ -16,6 +16,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          {/* to write like below emoji you can type press contol + p ==> then type >Emoji:insert Emoji  ==> then search emoji you want  */}
           <li>Online Status {onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to={"/"}>Home</Link>
@@ -26,6 +27,10 @@ const Header = () => {
           <li>
             <Link to={"/contact"}>Contact Us</Link>
           </li>
+          <li>
+            <Link to={"/grocery"}>Grocery</Link>
+          </li>
+
           <li>Cart</li>
           <button
             className="login"

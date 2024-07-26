@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 
+const useOnlineStatus = () => {
+  const [onlineStatus, setOnlineStatus] = useState(true);
 
-const useOnlineStatus = ()=>{
-    const[onlineStatus,setOnlineStatus] = useState(true);
-    
-    useEffect(()=>{
-      window.addEventListener("offline",()=>{
-          setOnlineStatus(false);
-      });
+  const handleOnline = () => {
+    setOnlineStatus(true);
+  };
+  useEffect(() => {
+    window.addEventListener("offline", () => {
+      setOnlineStatus(false);
+    });
 
-      window.addEventListener("online",()=>{
-        setOnlineStatus(true)
-      })
-    },[])
+    window.addEventListener("online", handleOnline());
 
-    return onlineStatus;
+    //its a good practise to like this always clear an eventlistner when you are writing
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+    };
+  }, []);
+
+  return onlineStatus;
 };
 
 export default useOnlineStatus;
