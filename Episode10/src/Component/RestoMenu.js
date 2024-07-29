@@ -16,8 +16,7 @@ const RestoMenu = () => {
     resMenu?.cards[2]?.card?.card?.info;
 
   //find the restaurent item list
-  const { itemCards } =
-    resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+  const { itemCards } = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
     <div>
