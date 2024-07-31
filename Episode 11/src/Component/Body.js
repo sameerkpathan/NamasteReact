@@ -16,7 +16,7 @@ const Body = () => {
 
   //whenever state variable update react trigger the reconcilation process(it will re-render component)
 
-  console.log("Body Re-render");
+  console.log("Restorent list",RestolistItem);
 
   //it gives a cors error when you are starting this app and try to fetch API so that time you can install an cors extension in chrome and turn on that extension so it can bypass that headers and will run in local app.
 

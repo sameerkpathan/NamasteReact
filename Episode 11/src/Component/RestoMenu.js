@@ -7,6 +7,9 @@ const RestoMenu = () => {
 
   const resMenu = useRestaurantMenu(resID);
 
+// console.log("Restaurent Menu " ,resID);
+
+
   if (resMenu === null) {
     return <ShimmerUi />;
   }

@@ -9,9 +9,9 @@ const Header = () => {
 
   return (
     <div className="flex justify-between bg-gray-100   shadow-lg ">
-      <div className="logo-container">
+      <div className="logo-container ">
         <Link to={"/"}>
-          <img className="w-36" src={LOGO_URL} />
+          <img className="w-36 rounded-full p-1" src={LOGO_URL} />
         </Link>
       </div>
       <div className="flex items-center  ">
