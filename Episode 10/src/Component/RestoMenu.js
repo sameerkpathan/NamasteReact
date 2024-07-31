@@ -21,7 +21,7 @@ const RestoMenu = () => {
 
   return (
     <div className="p-4 m-4 overflow-hidden ">
-      <div>
+      <div className="m-3 p-2">
         <h1>
           {" "}
           <span className="font-bold">Restaurent </span> Name : {name}
@@ -35,12 +35,12 @@ const RestoMenu = () => {
           {costForTwoMessage}
         </p>
       </div>
-      <div>
-        <h3 className="text-center font-bold p-2 m-2 ">Menu</h3>
+      <div className=" m-3 bg-gray-100 border border-gray-300 ">
+        <h3 className="text-center font-bold p-2 m-2 ">Recommended</h3>
         {itemCards.map((element) => {
           return (
             <div
-              className="p-2 m-3 bg-gray-100 border border-gray-300 h-[100px] "
+              className="p-2 m-3  border-gray-500 border-b-2  "
               key={element.card.info.id}
             >
               <p>
