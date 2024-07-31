@@ -85,11 +85,11 @@ const Body = () => {
     <ShimmerUi />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex ">
+        <div className="m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="px-4 border border-solid border-b-gray-400 border-b-3 "
             placeholder="Please Search Here"
             value={searchRestro}
             onChange={(event) => {
@@ -97,21 +97,32 @@ const Body = () => {
             }}
           />
 
-          <button className="search-btn" onClick={handleSearch}>
+          <button
+            className="px-4 py-2 ml-4 bg-green-100 rounded "
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>
 
-        <button className="filter-btn" onClick={handleTopRestro}>
-          Top Rated Restaurants
-        </button>
+        <div className="flex items-center">
+          <button
+            className="px-4 py-2 mr-5   bg-gray-100 rounded"
+            onClick={handleTopRestro}
+          >
+            Top Rated Restaurants
+          </button>
 
-        <button className="filter-btn" onClick={handleAllList}>
-          All Restaurant
-        </button>
+          <button
+            className="px-4 py-2 ml-2 bg-gray-100 rounded"
+            onClick={handleAllList}
+          >
+            All Restaurant
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap justify-around">
         {filteredRestro.length !== 0 ? (
           filteredRestro?.map((restorent) => {
             return (
