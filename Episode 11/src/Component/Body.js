@@ -44,7 +44,7 @@ const Body = () => {
     }
   };
 
-  console.log("Restorent list", RestolistItem);
+  // console.log("Restorent list", RestolistItem);
 
   //conditional rendering
   // if (RestolistItem.length === 0) {
