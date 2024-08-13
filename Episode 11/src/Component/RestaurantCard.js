@@ -14,13 +14,35 @@ const RestaurantCard = (props) => {
           alt="Food Image"
         />
         <h3 className=" font-bold py-2 text-lg ">{name}</h3>
-        <h4 className="overflow-hidden break-words text-ellipsis">{cuisines.join(",")}</h4>
+        <h4 className="overflow-hidden break-words text-ellipsis">
+          {cuisines.join(",")}
+        </h4>
         <h4>{avgRating}</h4>
         <h4>{costForTwo}</h4>
         <h4>{sla.slaString}</h4>
       </div>
     </Link>
   );
+};
+
+//We create Higher Order Component which takes above function as argument and return a component
+
+//Takes Input ==> RestaurantCard   output ==> Gives Card have Discount Offer
+
+export const WithOfferLabel = (RestaurantCard) => {
+  return (props) => {
+    const { resData } = props;
+    const { header, subHeader } = resData?.info?.aggregatedDiscountInfoV3;
+    return (
+      <div >
+        <div className="bg-gray-400 absolute text-black-400 rounded ml-4 mb-0 h-11 w-50%">
+          <label className="m-1" >{header}</label>
+          <label>{subHeader}</label>
+        </div>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

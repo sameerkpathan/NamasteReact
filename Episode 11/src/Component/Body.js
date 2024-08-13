@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithOfferLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Swiggy_URL } from "../Utils/constant";
@@ -14,11 +14,14 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
+  //HOC for product offer
+
+  const WithOfferCard = WithOfferLabel(RestaurantCard);
+
   //whenever state variable update react trigger the reconcilation process(it will re-render component)
 
-  
   //it gives a cors error when you are starting this app and try to fetch API so that time you can install an cors extension in chrome and turn on that extension so it can bypass that headers and will run in local app.
-  
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -30,18 +33,18 @@ const Body = () => {
 
       setRestolistItem(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+          ?.restaurants
       );
       setFilteredRestro(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+          ?.restaurants
       );
     } catch (error) {
       console.error("Error fetching Data :", error);
     }
   };
-  
-  console.log("Restorent list",RestolistItem);
+
+  console.log("Restorent list", RestolistItem);
 
   //conditional rendering
   // if (RestolistItem.length === 0) {
@@ -126,7 +129,9 @@ const Body = () => {
       <div className="flex flex-wrap justify-around">
         {filteredRestro.length !== 0 ? (
           filteredRestro?.map((restorent) => {
-            return (
+            return restorent.info.aggregatedDiscountInfoV3 ? (
+              <WithOfferCard key={restorent.info.id} resData={restorent} />
+            ) : (
               <RestaurantCard key={restorent.info.id} resData={restorent} />
             );
           })
