@@ -16,10 +16,9 @@ const Body = () => {
 
   //whenever state variable update react trigger the reconcilation process(it will re-render component)
 
-  console.log("Restorent list",RestolistItem);
-
+  
   //it gives a cors error when you are starting this app and try to fetch API so that time you can install an cors extension in chrome and turn on that extension so it can bypass that headers and will run in local app.
-
+  
   useEffect(() => {
     fetchData();
   }, []);
@@ -31,16 +30,18 @@ const Body = () => {
 
       setRestolistItem(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+        ?.restaurants
       );
       setFilteredRestro(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+        ?.restaurants
       );
     } catch (error) {
       console.error("Error fetching Data :", error);
     }
   };
+  
+  console.log("Restorent list",RestolistItem);
 
   //conditional rendering
   // if (RestolistItem.length === 0) {
