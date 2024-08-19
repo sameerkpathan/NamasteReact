@@ -1,8 +1,8 @@
 import { Img_CDN_URL } from "../Utils/constant";
-console.log(Img_CDN_URL);
+
 
 const ItemList = ({ ItemLists }) => {
-  console.log(ItemLists);
+  // console.log(ItemLists);
   return (
     <div>
       {ItemLists.map((Element) => {
@@ -11,7 +11,7 @@ const ItemList = ({ ItemLists }) => {
             key={Element?.card?.info?.id}
             className="p-2 m-2 text-left flex justify-between border-gray-300 border-b-2"
           >
-            <div className="w-9/12 p-4">
+            <div className="w-8/12 p-4">
               <div className="py-2">
                 <span>{Element?.card?.info?.name}</span>
                 <span>
@@ -35,8 +35,11 @@ const ItemList = ({ ItemLists }) => {
               
             </div>
 
-            <div className="w-3/12 p-4" >
-              <img src={Img_CDN_URL + Element.card.info.imageId} className="w-full rounded" />
+            <div className="w-4/12 p-4" >
+              <div className="absolute">
+              <button className="bg-white p-2 text-green-500 rounded-md mt-0  m-auto font-bold text-lg">ADD + </button>
+              </div>
+              <img src={Img_CDN_URL + Element.card.info.imageId} className="w-full h-60 rounded" />
             </div>
           </div>
         );
