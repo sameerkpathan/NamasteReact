@@ -1,8 +1,9 @@
 import RestaurantCard, { WithOfferLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Swiggy_URL } from "../Utils/constant";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from "../Utils/UserContext";
 
 const Body = () => {
   const [RestolistItem, setRestolistItem] = useState([]);
@@ -85,6 +86,10 @@ const Body = () => {
     );
   }
 
+  //UseContext Api we can update user name dynamically 
+
+  const {loggedInUser,setUserName} = useContext(UserContext);
+
   return RestolistItem.length === 0 ? (
     <ShimmerUi />
   ) : (
@@ -123,6 +128,10 @@ const Body = () => {
           >
             All Restaurant
           </button>
+           <div className="mx-1">
+            <label>User Name : </label>
+          <input className="border border-black px-1 mx-1" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)} />
+           </div>
         </div>
       </div>
 

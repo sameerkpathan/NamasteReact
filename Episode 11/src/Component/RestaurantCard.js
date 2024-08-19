@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Img_CDN_URL } from "../Utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../Utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
 
+  const {loggedInUser} = useContext(UserContext);
+  console.log(loggedInUser);
   const { name, cuisines, avgRating, costForTwo, sla, id } = resData?.info;
   return (
     <Link to={"/restaurants/" + id}>
@@ -20,6 +24,7 @@ const RestaurantCard = (props) => {
         <h4>{avgRating}</h4>
         <h4>{costForTwo}</h4>
         <h4>{sla.slaString}</h4>
+        <p>Name : {loggedInUser}</p>
       </div>
     </Link>
   );
