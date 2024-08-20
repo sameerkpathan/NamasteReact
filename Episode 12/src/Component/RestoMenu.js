@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const RestoMenu = () => {
 
-  const[showItem,setShowItem] = useState(0);
+  const[showItem,setShowItem] = useState();
 
   const { resID } = useParams();
 

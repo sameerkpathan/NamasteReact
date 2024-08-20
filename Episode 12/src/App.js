@@ -11,6 +11,9 @@ import Contact from "./Component/Contact";
 import RestoMenu from "./Component/RestoMenu";
 import ShimmerUi from "./Component/ShimmerUi";
 import UserContext from "./Utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./Utils/ReduxToolkit/appStore";
+import Cart from "./Component/Cart";
 // import Grocery from "./Component/Grocery";
 
 {
@@ -37,18 +40,23 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-    //use context take default value
-    <UserContext.Provider value={{ loggedInUser: userName , setUserName }}>
-      {/* use context takes here Sameer bhai value */}
-      <div>
-        {/* <UserContext.Provider value={{ loggedInUser: "Elon Bhai" }}> */}
+
+    <Provider store={appStore}>
+
+      {/* use context take default value */}
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        {/* use context takes here Sameer bhai value */}
+        <div>
+          {/* <UserContext.Provider value={{ loggedInUser: "Elon Bhai" }}> */}
           {/* here use context takes Elon Bhai */}
           <Header />
-        {/* </UserContext.Provider> */}
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+          {/* </UserContext.Provider> */}
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+      
+    </Provider>
   );
 };
 
@@ -80,6 +88,9 @@ const router = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },{
+        path:"/cart",
+        element: <Cart/>
       },
       {
         path: "/restaurants/:resID",

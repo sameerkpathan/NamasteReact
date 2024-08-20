@@ -6,8 +6,7 @@ import UserContext from "../Utils/UserContext";
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  const {loggedInUser} = useContext(UserContext);
-  console.log(loggedInUser);
+  const { loggedInUser } = useContext(UserContext);
   const { name, cuisines, avgRating, costForTwo, sla, id } = resData?.info;
   return (
     <Link to={"/restaurants/" + id}>
@@ -39,9 +38,9 @@ export const WithOfferLabel = (RestaurantCard) => {
     const { resData } = props;
     const { header, subHeader } = resData?.info?.aggregatedDiscountInfoV3;
     return (
-      <div >
+      <div>
         <div className="bg-gray-400 absolute text-black-400 rounded ml-4 mb-0 h-11 w-50%">
-          <label className="m-1" >{header}</label>
+          <label className="m-1">{header}</label>
           <label>{subHeader}</label>
         </div>
         <RestaurantCard {...props} />
