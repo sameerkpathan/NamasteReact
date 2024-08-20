@@ -4,6 +4,7 @@ import { addItems } from "../Utils/ReduxToolkit/cartSlice";
 import { Link } from "react-router-dom";
 
 const ItemList = ({ ItemLists }) => {
+  
   const dispatch = useDispatch();
 
   const handleDispatchClick = (ItemElement) => {
