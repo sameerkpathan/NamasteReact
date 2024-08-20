@@ -86,9 +86,9 @@ const Body = () => {
     );
   }
 
-  //UseContext Api we can update user name dynamically 
+  //UseContext Api we can update user name dynamically
 
-  const {loggedInUser,setUserName} = useContext(UserContext);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   return RestolistItem.length === 0 ? (
     <ShimmerUi />
@@ -128,10 +128,14 @@ const Body = () => {
           >
             All Restaurant
           </button>
-           <div className="mx-1">
+          <div className="mx-1">
             <label>User Name : </label>
-          <input className="border border-black px-1 mx-1" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)} />
-           </div>
+            <input
+              className="border border-black px-1 mx-1"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
         </div>
       </div>
 
