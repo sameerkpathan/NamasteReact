@@ -40,9 +40,7 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-
     <Provider store={appStore}>
-
       {/* use context take default value */}
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         {/* use context takes here Sameer bhai value */}
@@ -55,7 +53,6 @@ const AppLayout = () => {
           <Footer />
         </div>
       </UserContext.Provider>
-      
     </Provider>
   );
 };
@@ -88,9 +85,10 @@ const router = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
-      },{
-        path:"/cart",
-        element: <Cart/>
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurants/:resID",
