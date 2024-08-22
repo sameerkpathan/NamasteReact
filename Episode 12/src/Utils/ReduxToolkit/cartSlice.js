@@ -9,6 +9,15 @@ const cartSlice = createSlice({
 
     reducers: {
         addItems : (state,action)=>{
+        
+            //older vanila Redux we can not mutate state directly 
+            //const newState = [...state]
+            //newState.items.push(action.payload)
+            //return newState
+            //like this we need to update the state which is very hectic 
+
+
+            //but in new version i.e Redux ToolKit(RTK) that problem is solved
             //(mutating) updating state direclty here
          state.items.push(action.payload)
         },
