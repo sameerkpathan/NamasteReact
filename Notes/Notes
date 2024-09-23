@@ -96,3 +96,11 @@ so this will be life cycle of class based react component
   
   
   */}
+
+
+  Types of testing(developer)
+
+  1]Unit Testing  ==> You can test your react component in isolation 
+  2]Integrartion Testing
+  3]End to End Testing (e2e testing)
+
